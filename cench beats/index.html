@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cench Beats – Central Cee Complete Discography</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Arial',sans-serif}
+body{background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
+.header{position:relative;text-align:center;padding:4rem 2rem;overflow:hidden;min-height:60vh}
+.header::before{
+  content:"";position:absolute;inset:0;
+  background:url("images/cench-bg.jpg") center/cover no-repeat;
+  filter:blur(3px) brightness(0.7);
+  transform:scale(1.1);
+  animation:zoomBg 30s ease-in-out infinite alternate;
+  z-index:0
+}
+@keyframes zoomBg{0%{transform:scale(1.1)}100%{transform:scale(1.15)}}
+.header::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,0,0,0.4),rgba(29,185,84,0.5));
+  z-index:1
+}
+.header > *{position:relative;z-index:2}
+.logo{font-size:4rem;font-weight:bold;text-shadow:3px 3px 0 #000;margin-bottom:1rem}
+.tagline{font-size:1.3rem;opacity:.9;margin-bottom:1rem}
+.central-cee-badge{
+  background:#1DB954;color:#000;padding:.5rem 1.5rem;
+  border-radius:25px;font-weight:700;display:inline-block;margin-bottom:2rem
+}
+.header img{
+  width:200px;height:200px;border-radius:50%;
+  object-fit:cover;object-position:center 30%;
+  border:3px solid #1DB954;
+  display:block;margin:0 auto;
+  box-shadow:0 0 30px rgba(29,185,84,0.8)
+}
+
+/* STATS SECTION */
+.stats{
+  display:flex;justify-content:space-around;background:linear-gradient(45deg,#111,#222);
+  padding:2rem;border-radius:15px;margin:3rem 0;border:1px solid #333;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5)
+}
+.stat-item{text-align:center}
+.stat-number{font-size:2.5rem;color:#1DB954;font-weight:bold;text-shadow:0 0 10px rgba(29,185,84,0.5)}
+.stat-label{opacity:0.8;font-size:0.9rem}
+
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+.album-section{margin:4rem 0}
+.album-header{
+  background:linear-gradient(90deg,#1DB954,#FF6B00);
+  padding:2rem;border-radius:15px;text-align:center;margin-bottom:2rem;
+  box-shadow:0 10px 25px rgba(29,185,84,0.3)
+}
+.album-title{font-size:2.5rem;font-weight:bold;margin-bottom:.5rem;text-shadow:2px 2px 0 #000}
+.album-year{font-size:1.1rem;opacity:.9}
+.releases-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:2rem;margin-top:2rem
+}
+.song-card{
+  background:linear-gradient(145deg,#111,#222);
+  border-radius:20px;padding:2rem;border:1px solid #333;
+  transition:all 0.4s ease;text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3)
+}
+.song-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#1DB954,#FF6B00)
+}
+.song-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 20px 40px rgba(29,185,84,0.4);
+  border-color:#1DB954
+}
+
+/* PERFECTED IMAGE STYLING */
+.song-image{
+  width:100%;height:220px;object-fit:cover;object-position:center 25%;
+  border-radius:12px;border:2px solid #1DB954;margin-bottom:1.5rem;
+  background:#000;transition:transform 0.3s ease;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5)
+}
+.song-card:hover .song-image{
+  transform:scale(1.05);
+  border-color:#FF6B00
+}
+
+/* Profile image specific fix */
+.profile-image{
+  width:200px;height:200px;border-radius:50%;
+  object-fit:cover;object-position:center 25%;
+  border:3px solid #1DB954;display:block;margin:0 auto;
+  box-shadow:0 0 30px rgba(29,185,84,0.8)
+}
+
+.song-badge{
+  position:absolute;top:1rem;right:1rem;
+  padding:.4rem 1.2rem;border-radius:20px;
+  font-size:.8rem;font-weight:700;background:#FF6B00;color:#fff;
+  z-index:3;box-shadow:0 2px 8px rgba(0,0,0,0.3)
+}
+.song-badge.new{background:#FF0000}
+.song-badge.hit{background:#FFD700;color:#000}
+.song-badge.collab{background:#9146FF}
+.song-title{font-size:1.7rem;color:#1DB954;font-weight:700;margin-bottom:.5rem}
+.song-artist{font-size:1.1rem;color:#FF6B00;margin-bottom:1rem;font-weight:600}
+.song-description{opacity:.9;margin-bottom:1.5rem;line-height:1.5}
+.stream-links{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.stream-btn{
+  padding:.8rem 1.5rem;border-radius:25px;
+  font-weight:700;text-decoration:none;transition:all 0.3s ease;
+  border:none;cursor:pointer;min-width:120px
+}
+.stream-btn.primary{
+  background:linear-gradient(45deg,#1DB954,#17a74a);
+  color:#000;box-shadow:0 4px 15px rgba(29,185,84,0.4)
+}
+.stream-btn.secondary{
+  background:linear-gradient(45deg,#333,#555);
+  color:#fff;box-shadow:0 4px 15px rgba(0,0,0,0.3)
+}
+.stream-btn.listen{
+  background:linear-gradient(45deg,#FF6B00,#FF0000);
+  color:#fff;box-shadow:0 4px 15px rgba(255,107,0,0.4)
+}
+.stream-btn:hover{
+  transform:scale(1.08) translateY(-2px);
+  box-shadow:0 6px 20px rgba(29,185,84,0.6)
+}
+.footer{
+  text-align:center;padding:3rem 2rem;background:#111;
+  margin-top:4rem;border-top:3px solid #1DB954;
+  background:linear-gradient(45deg,#111,#000)
+}
+.social-links{display:flex;justify-content:center;gap:2rem;margin:2rem 0}
+.social-link{
+  color:#1DB954;text-decoration:none;font-weight:bold;transition:.3s;
+  padding:.5rem 1rem;border-radius:10px
+}
+.social-link:hover{
+  color:#FF6B00;background:rgba(29,185,84,0.1);
+  transform:translateY(-2px)
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.song-card {
+  animation: fadeIn 0.6s ease-out;
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">CENCH BEATS</div>
+  <p class="tagline">The Ultimate Central Cee Experience</p>
+  <div class="central-cee-badge">OFFICIAL MUSIC HUB</div>
+  
+  <!-- CENTRAL CEE PROFILE IMAGE WITH FALLBACK -->
+  <img src="images/cench-profile.jpg" alt="Central Cee" class="profile-image" 
+       onerror="this.src='https://i.scdn.co/image/ab6761610000e5ebc02d410f4bfa34d8b4c7d7e2'">
+</header>
+
+<main class="container">
+  <!-- STATS SECTION -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Total Songs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5B+</div>
+      <div class="stat-label">Total Streams</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">#1</div>
+      <div class="stat-label">Global Charts</div>
+    </div>
+  </div>
+
+  <!-- CANT RUSH GREATNESS 2024-2025 -->
+  <div class="album-section">
+    <div class="album-header">
+      <h2 class="album-title">CANT RUSH GREATNESS</h2>
+      <p class="album-year">2024-2025 • Latest Era</p>
+    </div>
+    <div class="releases-grid">
+      <!-- BAND4BAND -->
+      <div class="song-card">
+        <div class="song-badge new">2025</div>
+        <img src="images/cench-band4band.jpg" alt="BAND4BAND" class="song-image">
+        <h2 class="song-title">BAND4BAND</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Latest fire from the new era.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- UK RAP -->
+      <div class="song-card">
+        <div class="song-badge new">2025</div>
+        <img src="images/cench-onthemap.jpg" alt="UK Rap" class="song-image">
+        <h2 class="song-title">UK RAP</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Representing UK sound worldwide.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 HITS -->
+  <div class="album-section">
+    <div class="album-header" style="background:linear-gradient(90deg,#FF6B00,#FF0000)">
+      <h2 class="album-title">2024 DOMINANCE</h2>
+      <p class="album-year">2024 • Chart-Topping Year</p>
+    </div>
+    <div class="releases-grid">
+      <!-- WAVE -->
+      <div class="song-card">
+        <div class="song-badge new">2024</div>
+        <img src="images/cench-letgo.jpg" alt="Wave" class="song-image">
+        <h2 class="song-title">WAVE</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Fresh vibes from Lungu Boy era.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- DID IT FIRST -->
+      <div class="song-card">
+        <div class="song-badge new">2024</div>
+        <img src="images/cench-doja.jpg" alt="Did It First" class="song-image">
+        <h2 class="song-title">DID IT FIRST</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Y2K vibes taking over.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- H.Y.B. -->
+      <div class="song-card">
+        <div class="song-badge new">2024</div>
+        <img src="images/cench-obsessed.jpg" alt="H.Y.B." class="song-image">
+        <h2 class="song-title">H.Y.B.</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Fire from Might Delete Later.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- I WILL -->
+      <div class="song-card">
+        <div class="song-badge new">2024</div>
+        <img src="images/cench-commitment.jpg" alt="I Will" class="song-image">
+        <h2 class="song-title">I WILL</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">2024 solo track showing growth.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 HITS -->
+  <div class="album-section">
+    <div class="album-header" style="background:linear-gradient(90deg,#9146FF,#1DB954)">
+      <h2 class="album-title">2023 BREAKOUT</h2>
+      <p class="album-year">2023 • Global Domination</p>
+    </div>
+    <div class="releases-grid">
+      <!-- SPRINTER -->
+      <div class="song-card">
+        <div class="song-badge hit">#1 HIT</div>
+        <img src="images/cench-sprinter.jpg" alt="Sprinter" class="song-image">
+        <h2 class="song-title">SPRINTER</h2>
+        <p class="song-artist">Dave & Central Cee</p>
+        <p class="song-description">Record-breaking collab that dominated summer 2023.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/2FIp9mG3btF3mNc1SoC1WD" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/sprinter/1691656673" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=7stJls5cU_s" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/2FIp9mG3btF3mNc1SoC1WD" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- ON THE RADAR FREESTYLE -->
+      <div class="song-card">
+        <div class="song-badge">FREESTYLE</div>
+        <img src="images/cench-loading.jpg" alt="On The Radar Freestyle" class="song-image">
+        <h2 class="song-title">ON THE RADAR FREESTYLE</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Legendary freestyle that went viral.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- TOO MUCH -->
+      <div class="song-card">
+        <div class="song-badge">BANGER</div>
+        <img src="images/cench-6for6.jpg" alt="Too Much" class="song-image">
+        <h2 class="song-title">TOO MUCH</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Fire from The First Time project.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- ENTRAPRENEUR -->
+      <div class="song-card">
+        <div class="song-badge">2023</div>
+        <img src="images/cench-daylife.jpg" alt="Entrapreneur" class="song-image">
+        <h2 class="song-title">ENTRAPRENEUR</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Business mindset track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- ME & YOU -->
+      <div class="song-card">
+        <div class="song-badge">LIVE</div>
+        <img src="images/cench-profile.jpg" alt="Me & You" class="song-image">
+        <h2 class="song-title">ME & YOU</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Apple Music Live performance.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 23 MIXTAPE ERA -->
+  <div class="album-section">
+    <div class="album-header" style="background:linear-gradient(90deg,#FFD700,#FF6B00)">
+      <h2 class="album-title">23 MIXTAPE ERA</h2>
+      <p class="album-year">2022 • Career-Defining Project</p>
+    </div>
+    <div class="releases-grid">
+      <!-- OBSESSED WITH YOU -->
+      <div class="song-card">
+        <div class="song-badge hit">BREAKOUT</div>
+        <img src="images/cench-obsessed.jpg" alt="Obsessed With You" class="song-image">
+        <h2 class="song-title">OBSESSED WITH YOU</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">The viral hit that connected with millions worldwide.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/4OXG2J1KHAadnwMfG3Y2aG" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/obsessed-with-you/1585580067" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=5jN7o2h4H7I" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/4OXG2J1KHAadnwMfG3Y2aG" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- EUROVISION -->
+      <div class="song-card">
+        <div class="song-badge">VIBES</div>
+        <img src="images/cench-gbp.jpg" alt="Eurovision" class="song-image">
+        <h2 class="song-title">EUROVISION</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">International appeal track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- KHABIB -->
+      <div class="song-card">
+        <div class="song-badge">BANGER</div>
+        <img src="images/cench-sprinter.jpg" alt="Khabib" class="song-image">
+        <h2 class="song-title">KHABIB</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Fighter mentality track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- UNGRATEFUL -->
+      <div class="song-card">
+        <div class="song-badge">REAL TALK</div>
+        <img src="images/cench-letgo.jpg" alt="Ungrateful" class="song-image">
+        <h2 class="song-title">UNGRATEFUL</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Raw honesty about the journey.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- COLD SHOULDER -->
+      <div class="song-card">
+        <div class="song-badge">CHILL</div>
+        <img src="images/cench-commitment.jpg" alt="Cold Shoulder" class="song-image">
+        <h2 class="song-title">COLD SHOULDER</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Smooth vibes from the mixtape.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- STRAIGHT BACK TO IT -->
+      <div class="song-card">
+        <div class="song-badge">FOCUS</div>
+        <img src="images/cench-6for6.jpg" alt="Straight Back To It" class="song-image">
+        <h2 class="song-title">STRAIGHT BACK TO IT</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Grind mentality track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- RETAIL THERAPY -->
+      <div class="song-card">
+        <div class="song-badge">FLEX</div>
+        <img src="images/cench-band4band.jpg" alt="Retail Therapy" class="song-image">
+        <h2 class="song-title">RETAIL THERAPY</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Success and spending track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- LIL BRO -->
+      <div class="song-card">
+        <div class="song-badge">LOYALTY</div>
+        <img src="images/cench-loading.jpg" alt="Lil Bro" class="song-image">
+        <h2 class="song-title">LIL BRO</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Brotherhood and loyalty track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- MRS -->
+      <div class="song-card">
+        <div class="song-badge">RELATIONSHIPS</div>
+        <img src="images/cench-profile.jpg" alt="Mrs" class="song-image">
+        <h2 class="song-title">MRS</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Relationship dynamics track.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WILD WEST ERA -->
+  <div class="album-section">
+    <div class="album-header" style="background:linear-gradient(90deg,#333,#1DB954)">
+      <h2 class="album-title">WILD WEST ERA</h2>
+      <p class="album-year">2021 • The Come Up</p>
+    </div>
+    <div class="releases-grid">
+      <!-- DOJA -->
+      <div class="song-card">
+        <div class="song-badge hit">PLATINUM</div>
+        <img src="images/cench-doja.jpg" alt="Doja" class="song-image">
+        <h2 class="song-title">DOJA</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Global viral sensation and chart-topper.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/0Lz9yfsk4ejvBz5SY24Ycw" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/doja/1677281445" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=Y1KdzlVWuss" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/0Lz9yfsk4ejvBz5SY24Ycw" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- LOADING -->
+      <div class="song-card">
+        <div class="song-badge">CLASSIC</div>
+        <img src="images/cench-loading.jpg" alt="Loading" class="song-image">
+        <h2 class="song-title">LOADING</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">The track that put Central Cee on the global map.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/5f9e1wZz7W8FkCF9uBfH5J" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/loading/1557269269" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=HZHfjeD6T_s" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/5f9e1wZz7W8FkCF9uBfH5J" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- LET GO -->
+      <div class="song-card">
+        <div class="song-badge">FAN FAVE</div>
+        <img src="images/cench-letgo.jpg" alt="Let Go" class="song-image">
+        <h2 class="song-title">LET GO</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Raw drill anthem showing lyrical prowess.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/1e7r7eCpy6rDp8rVbQb1fH" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/let-go/1585580067" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=K5Y5n_mk1G4" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/1e7r7eCpy6rDp8rVbQb1fH" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- COMMITMENT ISSUES -->
+      <div class="song-card">
+        <div class="song-badge">ANTHEM</div>
+        <img src="images/cench-commitment.jpg" alt="Commitment Issues" class="song-image">
+        <h2 class="song-title">COMMITMENT ISSUES</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Raw honesty about relationships and fame struggles.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/3tYX9sPNqZ8Jd7tG1k5lN3" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/commitment-issues/1585580067" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=9e-yrVkQHw4" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/3tYX9sPNqZ8Jd7tG1k5lN3" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- 6 FOR 6 -->
+      <div class="song-card">
+        <div class="song-badge">BANGER</div>
+        <img src="images/cench-6for6.jpg" alt="6 For 6" class="song-image">
+        <h2 class="song-title">6 FOR 6</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Early hit that showcased the signature flow.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/track/1X6bS1pG0VU4S2Zqk6S9Y6" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/gb/album/6-for-6/1557269269" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/watch?v=3Q4m5Wll1Yd2qW5EfTw5S5" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/track/1X6bS1pG0VU4S2Zqk6S9Y6" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- DAY IN THE LIFE -->
+      <div class="song-card">
+        <div class="song-badge">DRILL</div>
+        <img src="images/cench-daylife.jpg" alt="Day In The Life" class="song-image">
+        <h2 class="song-title">DAY IN THE LIFE</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Authentic storytelling about the journey.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- OVERSEAS -->
+      <div class="song-card">
+        <div class="song-badge">INTERNATIONAL</div>
+        <img src="images/cench-onthemap.jpg" alt="Overseas" class="song-image">
+        <h2 class="song-title">OVERSEAS</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Global ambitions track from Home Alone 2.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- DAILY DUPPY -->
+      <div class="song-card">
+        <div class="song-badge">FREESTYLE</div>
+        <img src="images/cench-gbp.jpg" alt="Daily Duppy" class="song-image">
+        <h2 class="song-title">DAILY DUPPY</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Legendary GRM Daily freestyle.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- ONE UP -->
+      <div class="song-card">
+        <div class="song-badge">COMPETITIVE</div>
+        <img src="images/cench-sprinter.jpg" alt="One Up" class="song-image">
+        <h2 class="song-title">ONE UP</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Competitive track from No More Leaks.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- LITTLE BIT OF THIS -->
+      <div class="song-card">
+        <div class="song-badge">VIBES</div>
+        <img src="images/cench-obsessed.jpg" alt="Little Bit of This" class="song-image">
+        <h2 class="song-title">LITTLE BIT OF THIS</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Early vibes track from 2021.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- LA LEAKERS FREESTYLE -->
+      <div class="song-card">
+        <div class="song-badge">FREESTYLE</div>
+        <img src="images/cench-commitment.jpg" alt="LA Leakers Freestyle" class="song-image">
+        <h2 class="song-title">LA LEAKERS FREESTYLE</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">US freestyle showing international appeal.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+
+      <!-- TROJAN HORSE -->
+      <div class="song-card">
+        <div class="song-badge">2024</div>
+        <img src="images/cench-band4band.jpg" alt="Trojan Horse" class="song-image">
+        <h2 class="song-title">TROJAN HORSE</h2>
+        <p class="song-artist">Central Cee</p>
+        <p class="song-description">Latest track featured on Hip Hop Hits.</p>
+        <div class="stream-links">
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn primary">🎧 Spotify</a>
+          <a href="https://music.apple.com/us/artist/central-cee/1440765975" target="_blank" class="stream-btn secondary">🍎 Apple Music</a>
+          <a href="https://www.youtube.com/channel/UCaZgYb_x7LfcpbJy2TTI52g" target="_blank" class="stream-btn secondary">▶️ YouTube</a>
+          <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" target="_blank" class="stream-btn listen">#Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="social-links">
+    <a href="https://instagram.com/centralcee" class="social-link" target="_blank">Instagram</a>
+    <a href="https://twitter.com/centralcee" class="social-link" target="_blank">Twitter</a>
+    <a href="https://tiktok.com/@centralcee" class="social-link" target="_blank">TikTok</a>
+    <a href="https://open.spotify.com/artist/5H4yInM5zmHqpKIoMNAx4r" class="social-link" target="_blank">Spotify</a>
+  </div>
+  <p>Cench Beats • Complete Central Cee Discography • Updated Regularly</p>
+  <p style="margin-top:1rem;opacity:.6;">© 2025 Cench Beats – All official streaming links</p>
+</footer>
+</body>
+</html>
